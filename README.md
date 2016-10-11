@@ -1,5 +1,5 @@
 # BosWatchWeb
-Angular 2 frontend for the mysql-plugin of 
+Angular 2 frontend for the mysql-plugin of https://github.com/Schrolli91/BOSWatch
 
 ## Backend
 //TODO
