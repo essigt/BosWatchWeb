@@ -1,0 +1,21 @@
+.item {  
+  padding: 12px;
+  
+}
+
+
+.date {
+  font-size: 10pt;
+}
+
+.msg {
+  color: #fff;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.ric {
+  font-size: 10pt;
+  font-style: italic;
+}
+

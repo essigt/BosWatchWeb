@@ -1,0 +1,11 @@
+.details {
+    background-color: #5AB963;
+    height: 20%;
+    padding: 12px;
+    color: #333;
+    }
+
+.label {
+    font-weight: bolder;
+    padding-right: 8px;
+}

@@ -1,0 +1,16 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+  http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+  version="2.1">
+	<persistence-unit name="boswatch" transaction-type="JTA">
+		<jta-data-source>java:global/BosWatchDS</jta-data-source>
+		<class>de.essigt.bos.boswatch.business.fms.entity.FMS</class>
+		<class>de.essigt.bos.boswatch.business.fms.entity.FMSGroup</class>
+		<class>de.essigt.bos.boswatch.business.fms.entity.FMSLatest</class>
+		<class>de.essigt.bos.boswatch.business.pocsag.entity.Pocsag</class>
+		<properties>
+			<property name="wildfly.jpa.twophasebootstrap" value="false" />
+			<property name="javax.persistence.schema-generation.scripts.create-target" value="/home/tim/createBosWatch.sql"/>
+		</properties>
+	</persistence-unit>
+</persistence>   

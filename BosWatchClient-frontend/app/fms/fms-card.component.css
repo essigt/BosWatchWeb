@@ -1,0 +1,53 @@
+.fms-card {
+    width: 12em;
+    height: 48px;
+    background: #ccc;
+    border: #333;
+    margin: 1em;
+    position: relative;    
+}
+
+.status {
+    height: 40px;
+    width: 40px;
+    left: 4px;
+    top: 4px;
+    position: absolute;
+    text-align: center;
+    
+    border-radius: 4px;
+    padding-top: 4px;
+    font-weight: bolder;
+    font-size: 16pt;
+    text-transform: uppercase;
+}
+
+.vehicle {    
+    left: 48px;
+    height: 100%;
+    right: 0px;
+    vertical-align: center;
+    position: absolute;
+    padding: 4px;  
+}
+
+.time {
+    font-size: 10pt;
+    color: #768285;
+}
+.white {
+    background-color: #fff;
+}
+
+.blue {
+    background-color: #3F51B5;
+    color: #ccf;
+}
+
+.green {
+    background-color: #8BC34A;
+}
+
+.red {
+    background-color: #F33336;
+}

@@ -1,0 +1,28 @@
+<div class="header row">
+  <my-menubar></my-menubar>
+</div>
+<div class="body row"  style="margin:0px;">
+  <div class="container-fluid" style="top:0px;bottom:0px; position:absolute; left:0px; right:0px;">
+    <div class="row-fluid">
+      <div class="col-md-9 map">
+        <my-map class="map" [alarm]="selectedAlarm"></my-map>
+        <alarm-details *ngIf="selectedAlarm" class="details"  [alarm]="selectedAlarm" ></alarm-details>
+      </div>
+      <div class="col-md-3 history">
+        <h2>Alarm History</h2>
+        <div class="history-list">
+          <ul class="alarms items">
+            <li *ngFor="let alarm of alarms | async"
+              [class.selected]="alarm === selectedAlarm"
+              (click)="onSelect(alarm)">
+              <alarm-list-item [alarm]="alarm" ></alarm-list-item>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer row" style="padding: 0px; margin: 0px; color: #fff; vertical-alignment: right; font-size: 10pt;">
+  ©2016 - Tim Essig
+</div>

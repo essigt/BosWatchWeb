@@ -1,0 +1,5 @@
+<div class="fms-card" >    
+    <div class="status white" [class.blue]="fms.status == 4" [class.green]="fms.status == 2">{{fms.status}}</div>
+    <div class="vehicle" ><span>{{fms.description}}</span><br>
+    <span class="time">{{fms.timestamp | date:"'dd.MM.yyyy - HH:mm:ss"}}</span></div>
+</div>

@@ -1,0 +1,48 @@
+<div class="header row">
+  <my-menubar></my-menubar>
+</div>
+<div class="body row" style="margin:0px;">
+  <div class="container-fluid" style="top:0px;bottom:0px; position:absolute; left:0px; right:0px; margin:0px; ">
+    <div style="height:70%; overflow-y: scroll; ">
+      <div> 
+        <ul class="fmsGroup"  style="display:inline;">
+          <li *ngFor="let group of groups | async" >
+            <fms-group-card [group]="group"></fms-group-card>
+           </li>
+        </ul>
+       <!-- <ul class="fmsList items" >
+            <li *ngFor="let fms of fmsList | async"
+                [class.selected]="fms === selectedFms"
+                (click)="onSelect(fms)">
+                <fms-card [fms]="fms" ></fms-card>
+            </li>
+        </ul>-->
+
+      </div>
+    </div>
+    <div style="height:30%; overflow-y: scroll;">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Vehicle</th>
+            <th>FMS</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fms of fmsHistory | async">
+            <td>{{fms.timestamp |  date:"'HH:mm:ss - dd.MM.yy"}}</td>
+            <td>{{fms.description}}</td>
+            <td>{{fms.vehicle}}</td>
+            <td [class.bg-info]="fms.status == 1" [class.bg-primary]="fms.status == 2" [class.bg-warning]="fms.status == 3" [class.bg-danger]="fms.status == 4" [class.bg-success]="fms.status == 7">{{fms.status}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="footer row">
+  Footer
+</div>
