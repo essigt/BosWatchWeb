@@ -3,7 +3,7 @@
   http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
   version="2.1">
 	<persistence-unit name="boswatch" transaction-type="JTA">
-		<jta-data-source>java:global/BosWatchDS</jta-data-source>
+		<jta-data-source>java:/BosWatchDS</jta-data-source>
 		<class>de.essigt.bos.boswatch.business.fms.entity.FMS</class>
 		<class>de.essigt.bos.boswatch.business.fms.entity.FMSGroup</class>
 		<class>de.essigt.bos.boswatch.business.fms.entity.FMSLatest</class>

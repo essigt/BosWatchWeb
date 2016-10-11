@@ -27,6 +27,11 @@ import javax.ws.rs.core.UriInfo;
 import de.essigt.bos.boswatch.business.pocsag.entity.Pocsag;
 
 
+/**
+ * 
+ * @author essigt
+ *
+ */
 @Stateless
 @Path("pocsag")
 @Produces(MediaType.APPLICATION_JSON)
@@ -38,16 +43,16 @@ public class PocsagResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public JsonArray all(@Context UriInfo info) {
-		JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-		List<Pocsag> messages = ps.findLastMessagesAndNotELD().stream()
-				.filter(m -> !m.getMsg().trim().isEmpty())
-				.filter(m -> checkRic(m.getRic(), 114000, 150000))
-				.collect( Collectors.toList());
+	public JsonArray all(@Context UriInfo info) {		
+		List<Pocsag> messages = ps.findLast600Messages();
 		
 		Map<PocsagHeader, List<Pocsag>> grouped = groupByMsgAndTimeRange(messages, 5);
-		List<Pocsag> merged = grouped.values().stream().map( group -> mergeGroup(group)).collect( Collectors.toList() );
 		
+		List<Pocsag> merged = grouped.values().stream().
+				map( group -> mergeGroup(group)).
+				collect( Collectors.toList() );
+		
+		JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
 		merged.stream().
 			sorted((c1, c2) -> (int)(c2.getId() - c1.getId()) ).
 			map(n -> buildJson(n)).
@@ -64,7 +69,7 @@ public class PocsagResource {
 	@Path("latest")
 	@Produces(MediaType.APPLICATION_JSON)
 	public JsonObject latest() {
-		Pocsag latest = ps.findLastestNotELD();
+		Pocsag latest = ps.findLastest();
 		return buildJson(latest);
 	}
 	/**
@@ -111,6 +116,7 @@ public class PocsagResource {
 	 */
 	private Pocsag mergeGroup(List<Pocsag> group) {
 		Pocsag first = group.get(0);
+		
 		Pocsag pocsag = new Pocsag();
 		pocsag.setMsg(first.getMsg());
 		pocsag.setTime(first.getTime());

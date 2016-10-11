@@ -12,6 +12,11 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 
+/**
+ * 
+ * @author essigt
+ *
+ */
 @Entity
 @Table(name = "bos_pocsag")
 public class Pocsag {

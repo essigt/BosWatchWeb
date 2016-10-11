@@ -7,7 +7,6 @@
 	</parent>
 	
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.essigt.bos</groupId>
 	<artifactId>BosWatchClient-frontend</artifactId>
         <name>BosWatchClient-frontend</name>
 	<version>0.0.1-SNAPSHOT</version>

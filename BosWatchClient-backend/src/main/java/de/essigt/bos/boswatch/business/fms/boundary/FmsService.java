@@ -10,6 +10,12 @@ import de.essigt.bos.boswatch.business.fms.entity.FMS;
 import de.essigt.bos.boswatch.business.fms.entity.FMSGroup;
 import de.essigt.bos.boswatch.business.fms.entity.FMSLatest;
 
+
+/**
+ * 
+ * @author essigt
+ *
+ */
 @Stateless
 public class FmsService {
 	

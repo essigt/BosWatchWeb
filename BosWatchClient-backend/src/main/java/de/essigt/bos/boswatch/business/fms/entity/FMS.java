@@ -4,16 +4,18 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+/**
+ * 
+ * @author essigt
+ *
+ */
 @Entity
 @Table(name = "bos_fms")
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class FMS {
 	
 	@Id

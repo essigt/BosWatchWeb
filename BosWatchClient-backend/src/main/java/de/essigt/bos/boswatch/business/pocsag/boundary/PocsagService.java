@@ -10,6 +10,12 @@ import javax.persistence.TypedQuery;
 import de.essigt.bos.boswatch.business.pocsag.entity.Pocsag;
 
 
+
+/**
+ * 
+ * @author essigt
+ *
+ */
 @Stateless
 public class PocsagService {
 
@@ -22,7 +28,7 @@ public class PocsagService {
 	 * 
 	 * @return
 	 */
-	public List<Pocsag> findLastMessagesAndNotELD() {
+	public List<Pocsag> findLast600Messages() {
 		TypedQuery<Pocsag> query = em.createQuery("SELECT msg FROM Pocsag msg WHERE msg.msg <> null AND msg.msg <> '' AND msg.ric NOT LIKE '0113%' AND msg.ric NOT LIKE '%0141100%' ORDER BY msg.time DESC", Pocsag.class);
 		query.setMaxResults(600);
 
@@ -30,7 +36,7 @@ public class PocsagService {
 	}
 	
 	
-	public Pocsag findLastestNotELD() {
+	public Pocsag findLastest() {
 		TypedQuery<Pocsag> query = em.createQuery("SELECT msg FROM Pocsag msg WHERE msg.msg <> null AND msg.msg <> '' AND msg.ric NOT LIKE '0113%' AND msg.ric NOT LIKE '%0141100%' ORDER BY msg.id DESC", Pocsag.class);
 		query.setMaxResults(1);
 		return query.getSingleResult();

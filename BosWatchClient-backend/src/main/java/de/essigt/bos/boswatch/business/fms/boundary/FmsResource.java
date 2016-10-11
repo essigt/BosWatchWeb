@@ -12,7 +12,6 @@ import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
-import javax.json.JsonValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -23,6 +22,11 @@ import javax.ws.rs.core.UriInfo;
 import de.essigt.bos.boswatch.business.fms.entity.FMS;
 import de.essigt.bos.boswatch.business.fms.entity.FMSGroup;
 
+/**
+ * 
+ * @author essigt
+ *
+ */
 @Stateless
 @Path("fms")
 @Produces(MediaType.APPLICATION_JSON)
